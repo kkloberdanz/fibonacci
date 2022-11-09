@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include <gmp.h>
 
 static void fib(mpz_t n, mpz_t out) {
