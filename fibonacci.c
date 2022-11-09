@@ -4,6 +4,9 @@
 
 #include <gmp.h>
 
+#define MPZ_CMP(A, OP, B) mpz_cmp((A), (B)) OP 0
+#define MPZ_CMP_UI(A, OP, B) mpz_cmp_ui((A), (B)) OP 0
+
 static void fib(mpz_t n, mpz_t out) {
     mpz_t first;
     mpz_t second;
@@ -39,7 +42,7 @@ int main(void) {
     mpz_init(result);
     for (;;) {
         mpz_inp_str(n, stdin, 10);
-        if (mpz_cmp_ui(n, 0) == 0) {
+        if (MPZ_CMP_UI(n, ==, 0)) {
             break;
         }
         fib(n, result);
